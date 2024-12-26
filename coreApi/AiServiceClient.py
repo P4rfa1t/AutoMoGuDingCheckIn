@@ -37,7 +37,7 @@ def generate_article(
     headers = {
         "Authorization": f"Bearer {config.get_value('config.ai.apikey')}",
     }
-    api_url = config.get_value("config.ai.apiUrl")
+    api_url = config.get_value("config.ai.apiUrl").rstrip("/") + "/v1/chat/completions"
 
     # 动态生成系统提示词，支持更灵活的扩展
     system_prompt = (
